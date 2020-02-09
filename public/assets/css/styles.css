@@ -1,3 +1,16 @@
+body{
+  background-color: white;
+}
+
+#logo{
+  width:90%;
+}
+
+.funny-text{
+  font-family: 'Kaushan Script', cursive;
+  font-weight: bolder;
+}
+
 li {
     padding: 5px;
     margin: 5px;

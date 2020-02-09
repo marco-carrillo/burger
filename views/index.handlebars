@@ -4,8 +4,10 @@
     {{!-- ******************************************************** --}}
     {{!-- First top row, we will add the header for the restaurant --}}
     {{!-- ******************************************************** --}}
-    <div id="logo" class="row ">
-        <img id="MClogo" src="./layouts/assets/images/burgers.jpg">
+    <div id="logo" class="row mx-1">
+      <div class="col-12">
+            <img id="MClogo" src="./assets/images/burgers.png">
+      </div>
     </div>
 
     {{!-- ******************************************************** --}}
@@ -13,9 +15,9 @@
     {{!-- ******************************************************** --}}
     <div id="info" class="row">
         <div class="col-sm-1"></div>
-        <div id="phone" class="col-sm-4"><i class="fas fa-phone-square-alt"></i>1 (800) EAT-BRGR</div>
+        <div id="phone" class="col-sm-4 text-right"><i class="fas fa-phone-square-alt"></i>1 (800) EAT-BRGR</div>
         <div class="col-sm-2"></div>
-        <div id="email" class="col-sm-4"><i class="fas fa-envelope-open-text"></i>Restaurant 'Eat-Da-Burger</div> 
+        <div id="email" class="col-sm-4 text-left"><i class="fas fa-envelope-open-text"></i>Eat-Da-Burger@gone.com</div> 
         <div class="col-sm-1"></div>
     </div>
 
@@ -25,7 +27,7 @@
     <div class="container border">
         <div id="info" class="row">
           <div class="col-12 text-center">
-            <h4>Add a yummy burger</h4>
+            <h4><span class="funny-text">Add a yummy burger</span></h4>
           </div>
         </div>
 
@@ -43,19 +45,33 @@
                 </div>
                 <div class="col-2"></div>
                 <div class="col-5 text-left">
-                    <button type="submit">Add burger</button>
+                    <button type="submit" class="add-bg">Add burger</button>
                 </div>
             </form>
         </div>
     </div>
 
     {{!-- **************************************************************** --}}
-    {{!-- Fifth row, it will be divided on two columns.  On the left, all  --}}
+    {{!-- fifth row, it will contain the headings for the status of the    --}}
+    {{!-- hamburgers, either un-devoured or devoured                       --}}
+    {{!-- **************************************************************** --}}
+    <div class="row mx-1 my-3">
+      <div class="col-5 text-center border">
+          <h4><span class="funny-text">Ready to be devoured</span></h4>
+      </div>
+      <div class="col-2"></div>
+      <div class="col-5 text-center border">
+          <h4><span class="funny-text">Gone.... Devoured.... so long</span></h4>
+      </div>
+    </div>
+
+    {{!-- **************************************************************** --}}
+    {{!-- sixth row, it will be divided on two columns.  On the left, all  --}}
     {{!-- undevoured hamburgers.  On the right, all eaten ones             --}}
     {{!-- **************************************************************** --}}
 
-    <div class="row">
-         <div class="col-5">
+    <div class="row mx-1 my-3">
+         <div class="col-5 border py-3">
               <ul>
                 {{#each burgers}}
                   {{#unless devoured}}
@@ -65,7 +81,8 @@
               </ul>
          </div> 
          <div class="col-2"></div>
-         <div class="col-5">
+
+         <div class="col-5 border py-3">
               <ul>
                 {{#each burgers}}
                   {{#if devoured}}

@@ -62,6 +62,7 @@ let orm = {
         queryString += ` (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
 
         console.log(queryString);
+        console.log(vals);
 
         connection.query(queryString, vals, function(err, result) {
             if (err) { throw err; }
