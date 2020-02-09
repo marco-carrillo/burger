@@ -3,7 +3,9 @@
 The 'Eat-da-Burger' application is an application that uses the full stack to deliver an entertaining application.  Its practical application is to learn to orchestrate the different components of the stack rather than being a useful daily companion.  Nevertheless, it is one of the building blocks to implement the MCV architectual software development model  (model-view-controller).
 
 
-## MCV model:  Under this model, the user is agnostic to the data flow and data changes happening in the back server.  The back server, on the other hand, uses a modular approach to deliver, fulfill, and display changes executed from the user interface.
+## MCV model:  
+
+Under this model, the user is agnostic to the data flow and data changes happening in the back server.  The back server, on the other hand, uses a modular approach to deliver, fulfill, and display changes executed from the user interface.
 
 The application is deployed in three four main modules:
 
