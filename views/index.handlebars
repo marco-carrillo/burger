@@ -1,0 +1,78 @@
+
+
+<div class="container">
+    {{!-- ******************************************************** --}}
+    {{!-- First top row, we will add the header for the restaurant --}}
+    {{!-- ******************************************************** --}}
+    <div id="logo" class="row ">
+        <img id="MClogo" src="./layouts/assets/images/burgers.jpg">
+    </div>
+
+    {{!-- ******************************************************** --}}
+    {{!-- Second raw, it will contain the restaurant information   --}}
+    {{!-- ******************************************************** --}}
+    <div id="info" class="row">
+        <div class="col-sm-1"></div>
+        <div id="phone" class="col-sm-4"><i class="fas fa-phone-square-alt"></i>1 (800) EAT-BRGR</div>
+        <div class="col-sm-2"></div>
+        <div id="email" class="col-sm-4"><i class="fas fa-envelope-open-text"></i>Restaurant 'Eat-Da-Burger</div> 
+        <div class="col-sm-1"></div>
+    </div>
+
+    {{!-- ******************************************************** --}}
+    {{!-- Third raw, it will contain the ability to enter a burger --}}
+    {{!-- ******************************************************** --}}
+    <div class="container border">
+        <div id="info" class="row">
+          <div class="col-12 text-center">
+            <h4>Add a yummy burger</h4>
+          </div>
+        </div>
+
+        {{!-- ******************************** --}}
+        {{!-- Fourth row, entering burger name --}}
+        {{!-- ******************************** --}}
+        <div class="row"
+            <form class="create-form">
+
+                <div class="col-5 text-right">
+                    <div class="form-group">
+                      <label for="ca">Burger Name:</label>
+                      <input type="text" id="ca" name="burger_name">
+                    </div>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-5 text-left">
+                    <button type="submit">Add burger</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{!-- **************************************************************** --}}
+    {{!-- Fifth row, it will be divided on two columns.  On the left, all  --}}
+    {{!-- undevoured hamburgers.  On the right, all eaten ones             --}}
+    {{!-- **************************************************************** --}}
+
+    <div class="row">
+         <div class="col-5">
+              <ul>
+                {{#each burgers}}
+                  {{#unless devoured}}
+                    {{> burgers/burger-block devoured=true}}
+                  {{/unless}}
+                {{/each}}
+              </ul>
+         </div> 
+         <div class="col-2"></div>
+         <div class="col-5">
+              <ul>
+                {{#each burgers}}
+                  {{#if devoured}}
+                    {{> burgers/burger-block devoured=false}}
+                  {{/if}}
+                {{/each}}
+              </ul>
+         </div>
+    </div>
+</div>
