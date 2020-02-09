@@ -4,9 +4,9 @@
     {{!-- ******************************************************** --}}
     {{!-- First top row, we will add the header for the restaurant --}}
     {{!-- ******************************************************** --}}
-    <div id="logo" class="row mx-1">
+    <div id="logo" class="row ">
       <div class="col-12">
-            <img id="MClogo" src="./assets/images/burgers.png">
+            <img id="BGlogo" src="./assets/images/da-burgers.png">
       </div>
     </div>
 
@@ -22,7 +22,7 @@
     </div>
 
     {{!-- ******************************************************** --}}
-    {{!-- Third raw, it will contain the ability to enter a burger --}}
+    {{!-- Third row, it will contain the ability to enter a burger --}}
     {{!-- ******************************************************** --}}
     <div class="container border">
         <div id="info" class="row">
@@ -55,13 +55,16 @@
     {{!-- fifth row, it will contain the headings for the status of the    --}}
     {{!-- hamburgers, either un-devoured or devoured                       --}}
     {{!-- **************************************************************** --}}
-    <div class="row mx-1 my-3">
-      <div class="col-5 text-center border">
-          <h4><span class="funny-text">Ready to be devoured</span></h4>
-      </div>
-      <div class="col-2"></div>
-      <div class="col-5 text-center border">
-          <h4><span class="funny-text">Gone.... Devoured.... so long</span></h4>
+
+    <div class="container mt-2 mb-1">
+      <div class="row">
+        <div class="col-5 text-center border">
+            <h4><span class="funny-text">Ready to be devoured</span></h4>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-5 text-center border">
+            <h4><span class="funny-text">Gone.... Devoured.... so long</span></h4>
+        </div>
       </div>
     </div>
 
@@ -70,26 +73,28 @@
     {{!-- undevoured hamburgers.  On the right, all eaten ones             --}}
     {{!-- **************************************************************** --}}
 
-    <div class="row mx-1 my-3">
-         <div class="col-5 border py-3">
-              <ul>
-                {{#each burgers}}
-                  {{#unless devoured}}
-                    {{> burgers/burger-block devoured=true}}
-                  {{/unless}}
-                {{/each}}
-              </ul>
-         </div> 
-         <div class="col-2"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-5 border py-3">
+                  <ul>
+                    {{#each burgers}}
+                      {{#unless devoured}}
+                        {{> burgers/burger-block devoured=true}}
+                      {{/unless}}
+                    {{/each}}
+                  </ul>
+            </div> 
+            <div class="col-2"></div>
 
-         <div class="col-5 border py-3">
-              <ul>
-                {{#each burgers}}
-                  {{#if devoured}}
-                    {{> burgers/burger-block devoured=false}}
-                  {{/if}}
-                {{/each}}
-              </ul>
-         </div>
+            <div class="col-5 border py-3">
+                  <ul>
+                    {{#each burgers}}
+                      {{#if devoured}}
+                        {{> burgers/burger-block devoured=false}}
+                      {{/if}}
+                    {{/each}}
+                  </ul>
+            </div>
+        </div>
     </div>
 </div>

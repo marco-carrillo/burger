@@ -51,6 +51,7 @@ let orm = {
         connection.query(queryString, function(err, result) {
             if (err) {throw err}
             cb(result);
+            console.log(`GET ALL RECORDS...:  Served ${result.length} records to client`);
         });
     },
 
@@ -61,12 +62,10 @@ let orm = {
         let queryString = `INSERT INTO ${table}` ;
         queryString += ` (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
 
-        console.log(queryString);
-        console.log(vals);
-
         connection.query(queryString, vals, function(err, result) {
             if (err) { throw err; }
             cb(result);
+            console.log(`ADDED RECORD......:  Added burger '${vals[0]}' to database`);
         });
     },
 
@@ -77,10 +76,10 @@ let orm = {
     update: function(table, objColVals, condition, cb) {
         let queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition}`;
 
-        console.log(queryString);
         connection.query(queryString, function(err, result) {
             if (err) {throw err;}
             cb(result);
+            console.log(`UPDATED RECORD....:  Updated burger where ${condition} to a new status`);
         });
     },
 
@@ -89,10 +88,10 @@ let orm = {
     //***************************************************/
     delete: function(table, cond, cb) {
         let queryString =`DELETE FROM ${table} WHERE ${cond}`;
-        console.log(queryString);
         connection.query(queryString, function(err, result) {
             if (err) {throw err;}
             cb(result);
+            console.log(`DELETED RECORD....:  Deleted burger with ${cond} from database`);
         });
     }
 };
